@@ -1,0 +1,53 @@
+# ---------- Who is sending ----------
+[sender]
+name = "Your Name"
+company = "Your Company"
+email = "you@example.com"
+reply_to = ""                       # optional, leave empty to use `email`
+postal_address = "Your city, country"   # shown in the footer (CAN-SPAM / GDPR transparency)
+
+# ---------- What you are offering ----------
+[offer]
+description = """
+Describe in 2-4 lines what you offer, who it helps and the main benefit.
+Example: I build modern, fast websites and simple booking systems for local clinics
+so they get more appointments online.
+"""
+call_to_action = "Ask if they would be open to a quick 10-minute call or a short reply."
+language = "English"
+tone = "friendly, short, professional, no hype"
+max_words = 120
+
+# ---------- Local AI (Ollama) ----------
+[ollama]
+host = "http://localhost:11434"
+model = "qwen2.5:7b"               # fits an 8 GB GPU. Alternative: "llama3.1:8b"
+temperature = 0.7
+timeout_seconds = 240
+
+# ---------- Website scraping ----------
+[scraper]
+max_pages = 3                       # homepage + up to 2 relevant pages (about, services...)
+max_chars = 4000                    # how much website text is given to the AI
+timeout_seconds = 15
+
+# ---------- Email account (SMTP) ----------
+[smtp]
+host = "smtp.gmail.com"             # Outlook: smtp.office365.com
+port = 587                          # 587 = STARTTLS, 465 = SSL
+security = "starttls"               # "starttls" or "ssl"
+username = "you@gmail.com"
+password_env = "SMTP_PASSWORD"      # the password lives in .env, NOT here
+
+# ---------- Safety limits ----------
+[limits]
+daily_limit = 20                    # keep small at first; warm up the account slowly
+min_delay_seconds = 45
+max_delay_seconds = 150
+
+# ---------- Files ----------
+[files]
+leads = "leads.xlsx"
+drafts = "drafts.xlsx"
+unsubscribe = "unsubscribe.txt"
+sent_log = "sent_log.csv"

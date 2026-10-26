@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+.env
+leads.xlsx
+drafts.xlsx
+sent_log.csv
+unsubscribe.txt
+*.zip
